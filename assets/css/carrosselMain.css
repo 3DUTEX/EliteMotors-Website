@@ -1,0 +1,14 @@
+.carrossel-main{
+    display: flex;
+    overflow: x;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    width: 100%;
+    height: 80vh;
+}
+
+.carrossel-main-item{
+    min-width: 100%;
+}
+
