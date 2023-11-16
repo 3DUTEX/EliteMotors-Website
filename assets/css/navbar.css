@@ -14,6 +14,7 @@ a {
 }
 
 .header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
     position: absolute;
     width: 100%;
 
@@ -21,22 +22,21 @@ a {
 }
 
 .nav {
-    max-width: 1280px;
-    height: 70px;
-    margin-inline: auto;
+    padding: 20px;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
 }
 
 /* Logo */
-.logo {
-    width: 20px;
-    height: 20px;
+.logo{
+    width: 150px;
+    height: 150px;
 }
 
 .nav-list {
+    padding-top: 30px;
     display: flex;
     gap: 32px;
     list-style: none;
@@ -52,7 +52,7 @@ a {
     display: none;
     border: none;
     background: none;
-    border-top: 3px solid var(--text-primary-color);
+    border-top: 3px solid #fff;
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@ a {
     display: block;
     width: 30px;
     height: 3px;
-    background: var(--text-primary-color);
+    background: #fff;
     margin-top: 5px;
     position: relative;
     transition: 0.3s;
@@ -76,6 +76,10 @@ a {
     .hamburger {
         display: block;
         z-index: 1;
+    }
+
+    .nav{
+        align-items: center;
     }
 
     /* Background navlist */
@@ -125,11 +129,19 @@ a {
         opacity: 1;
     }
 
-    .nav.active .hamburger {
+    .nav.active .hamburger{
         position: fixed;
-        top: 26px;
-        right: 16px;
+        /* top: 26px; */
+        right: 34px;
         border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::after{
+        background: #000;
+    }
+
+    .nav.active .hamburger::before{
+        background: #000;
     }
 
     .nav.active .hamburger::before {
