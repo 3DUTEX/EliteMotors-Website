@@ -40,26 +40,35 @@ carrosselMain.comIntervalo(2000);
 
 // CARROSSEL CARROS
 const imgCarrosselCar = document.querySelector(".imgCarrosselCarro");
+const nomeCarro = document.querySelector(".nome-carro");
 const sDireita = document.querySelector(".s_direita");
 const sEsquerda = document.querySelector(".s_esquerda");
-const bmw = document.querySelector(".bmw");
 
 class CarrosselV2 {
-    constructor(img, img1, img2) {
+    constructor(carParams) {
+        const { img, img1, img2, nm, nm1, nm2 } = carParams;
         this.img = img;
         this.img1 = img1;
         this.img2 = img2;
+        this.nm = nm;
+        this.nm1 = nm1;
+        this.nm2 = nm2;
         this.countImg = 0;
-        this.changeImage();
+        this.changeDetails();
+        this.arrowIncrement(sDireita);
+        this.arrowDecrement(sEsquerda);
     }
 
-    changeImage() {
+    changeDetails() {
         switch (this.countImg) {
             case 0: imgCarrosselCar.src = this.img;
+                nomeCarro.textContent = this.nm;
                 break;
             case 1: imgCarrosselCar.src = this.img1;
+                nomeCarro.textContent = this.nm1;
                 break;
             case 2: imgCarrosselCar.src = this.img2;
+                nomeCarro.textContent = this.nm2;
         }
     }
 
@@ -71,7 +80,7 @@ class CarrosselV2 {
 
             this.setAnimation("passaCarro");
             setTimeout(() => {
-                this.changeImage();
+                this.changeDetails();
             }, 300)
 
         });
@@ -85,7 +94,7 @@ class CarrosselV2 {
 
             this.setAnimation("voltaCarro");
             setTimeout(() => {
-                this.changeImage();
+                this.changeDetails();
             }, 300)
 
         });
@@ -94,7 +103,7 @@ class CarrosselV2 {
     setAnimation(animation) {
         const classes = imgCarrosselCar.classList;
         if (classes.length > 1) {
-            imgCarrosselCar.className = classes[0];
+            imgCarrosselCar.className = "imgCarrosselCarro";
             setTimeout(() => {
                 imgCarrosselCar.classList.toggle(animation);
             }, 5);
@@ -104,8 +113,39 @@ class CarrosselV2 {
     }
 }
 
-const imgs = ["./assets/images/porscheCayenne.webp", "./assets/images/porsche 911.png", "./assets/images/panamera2.png"];
 
-const carrosselPorsche = new CarrosselV2(imgs[0], imgs[1], imgs[2]);
-carrosselPorsche.arrowIncrement(sDireita);
-carrosselPorsche.arrowDecrement(sEsquerda);
+function selectBrand(brand) {
+    let carParams;
+
+    if (brand == "porsche") {
+        carParams = {
+            img: "./assets/images/porscheCayenne.webp",
+            img1: "./assets/images/porsche 911.png",
+            img2: "./assets/images/panamera2.png",
+            nm: "Porsche Cayenne",
+            nm1: "Porsche 911",
+            nm2: "Panamera",
+        }
+    } else if (brand == "audi") {
+        carParams = {
+            img: "./assets/images/audi r8.png",
+            img1: "./assets/images/audi rs6.png",
+            img2: "./assets/images/audi rs7.png",
+            nm: "Audi R8",
+            nm1: "Audi RS6",
+            nm2: "Audi RS7",
+        }
+    } else {
+        carParams = {
+            img: "./assets/images/porscheCayenne.webp",
+            img1: "./assets/images/porsche 911.png",
+            img2: "./assets/images/panamera2.png",
+            nm: "Porsche Cayenne",
+            nm1: "Porsche 911",
+            nm2: "Panamera",
+        }
+    }
+
+    const carrosselPorsche = new CarrosselV2(carParams);
+
+};

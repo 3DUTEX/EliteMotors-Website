@@ -34,15 +34,27 @@
         <div class="marcas-container">
             <p>Encontre seu semi-novo aqui!</p>
             <div class="marcas">
-                <img class="porsche marca" src="./assets/images/porshelogo.png" alt="logo da porsche">
-                <img class="audi marca" src="./assets/images/audilogo.png" alt="logo da audi">
-                <img class="bmw marca" src="./assets/images/bmwlogo.png" alt="logo da bmw">
+                <img class="porsche marca" src="./assets/images/porshelogo.png" alt="logo da porsche" onclick="selectBrand('porsche')">
+                <img class="audi marca" src="./assets/images/audilogo.png" alt="logo da audi" onclick="selectBrand('audi')">
+                <img class="bmw marca" src="./assets/images/bmwlogo.png" alt="logo da bmw" onclick="selectBrand('bmw')">
             </div>
         </div>
         <div class="carrosel-carros-container">
             <img class = "seta s_esquerda" src="./assets/images/seta1Esquerda.png" alt="seta esquerda">
-            <img class = "imgCarrosselCarro" src= "./assets/images/porsche stuttgart.png" alt="foto de um carro">
+            <div class="carro-detalhes">
+                <img class = "imgCarrosselCarro" src= "./assets/images/porsche stuttgart.png" alt="foto de um carro">
+                <p class="nome-carro">Nome do carro</p>
+                <button class="btn-detalhes">Negociar</button>
+            </div>
             <img class = "seta s_direita" src="./assets/images/seta1.png" alt="seta direita">
+        </div>
+    </section>
+    <section class="localizacao">
+        <div>
+            <p>Venha conhecer nossa unidade em SP!</p>
+            <a href="https://maps.app.goo.gl/nm2ZssZEayCq3nqn8" target="_blank">
+                <img src="./assets/images/MAPS.png" alt="Imagem de um ponto de localização">
+            </a>
         </div>
     </section>
     <script src="./assets/js/main.js"></script>

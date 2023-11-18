@@ -1,0 +1,35 @@
+.localizacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70vh;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("../images/concessionaria.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.localizacao div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px;
+}
+.localizacao div p{
+    font-size: 40px;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.localizacao div img{
+    width: 100px;
+    transition: 300ms ease-in-out;
+}
+
+.localizacao div img:hover{
+    padding-top: 30px;
+    transform: scale(1.2);
+}

@@ -5,6 +5,7 @@
 :root{
     --bg-primary-color: rgba(238, 238, 238,0.6);
     --text-primary-color: #fff;
+    --secondary-color: rgb(34, 185, 185);
 }
 
 a {
@@ -46,6 +47,12 @@ a {
     font-size: 22px;
     color: var(--text-primary-color);
     padding-block: 16px;
+
+    transition: 300ms ease;
+}
+
+.nav-list a:hover{
+    color: var(--secondary-color);
 }
 
 .hamburger {
@@ -104,6 +111,10 @@ a {
     .nav-list a {
         font-size: 24px;
         opacity: 0;
+    }
+
+    .nav-list a:hover{
+        color: #000;
     }
 
     /* Animação links */
