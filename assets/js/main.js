@@ -44,108 +44,110 @@ const nomeCarro = document.querySelector(".nome-carro");
 const sDireita = document.querySelector(".s_direita");
 const sEsquerda = document.querySelector(".s_esquerda");
 
-class CarrosselV2 {
-    constructor(carParams) {
-        const { img, img1, img2, nm, nm1, nm2 } = carParams;
-        this.img = img;
-        this.img1 = img1;
-        this.img2 = img2;
-        this.nm = nm;
-        this.nm1 = nm1;
-        this.nm2 = nm2;
-        this.countImg = 0;
-        this.changeDetails();
-        this.arrowIncrement(sDireita);
-        this.arrowDecrement(sEsquerda);
-    }
+let countImg = 0;
+let carParams = {
+    img: "./assets/images/porscheCayenne.webp",
+    img1: "./assets/images/porsche 911.png",
+    img2: "./assets/images/panamera2.png",
+    nm: "Porsche Cayenne",
+    nm1: "Porsche 911",
+    nm2: "Panamera",
+}
+let { img, img1, img2, nm, nm1, nm2 } = carParams;
 
-    changeDetails() {
-        switch (this.countImg) {
-            case 0: imgCarrosselCar.src = this.img;
-                nomeCarro.textContent = this.nm;
-                break;
-            case 1: imgCarrosselCar.src = this.img1;
-                nomeCarro.textContent = this.nm1;
-                break;
-            case 2: imgCarrosselCar.src = this.img2;
-                nomeCarro.textContent = this.nm2;
-        }
-    }
+changeDetails();
 
-    arrowIncrement(arrowElement) {
-        arrowElement.addEventListener("click", () => {
-            this.countImg++;
-            if (this.countImg > 2)
-                this.countImg = 0;
-
-            this.setAnimation("passaCarro");
-            setTimeout(() => {
-                this.changeDetails();
-            }, 300)
-
-        });
-    }
-
-    arrowDecrement(arrowElement) {
-        arrowElement.addEventListener("click", () => {
-            this.countImg--;
-            if (this.countImg < 0)
-                this.countImg = 2;
-
-            this.setAnimation("voltaCarro");
-            setTimeout(() => {
-                this.changeDetails();
-            }, 300)
-
-        });
-    }
-
-    setAnimation(animation) {
-        const classes = imgCarrosselCar.classList;
-        if (classes.length > 1) {
-            imgCarrosselCar.className = "imgCarrosselCarro";
-            setTimeout(() => {
-                imgCarrosselCar.classList.toggle(animation);
-            }, 5);
-        } else {
-            imgCarrosselCar.classList.toggle(animation);
-        }
+function changeDetails() {
+    switch (countImg) {
+        case 0: imgCarrosselCar.src = img;
+            nomeCarro.textContent = nm;
+            break;
+        case 1: imgCarrosselCar.src = img1;
+            nomeCarro.textContent = nm1;
+            break;
+        case 2: imgCarrosselCar.src = img2;
+            nomeCarro.textContent = nm2;
     }
 }
 
 
-function selectBrand(brand) {
-    let carParams;
+sDireita.addEventListener("click", () => {
+    countImg++;
+    if (countImg > 2)
+        countImg = 0;
 
-    if (brand == "porsche") {
-        carParams = {
-            img: "./assets/images/porscheCayenne.webp",
-            img1: "./assets/images/porsche 911.png",
-            img2: "./assets/images/panamera2.png",
-            nm: "Porsche Cayenne",
-            nm1: "Porsche 911",
-            nm2: "Panamera",
-        }
-    } else if (brand == "audi") {
-        carParams = {
-            img: "./assets/images/audi r8.png",
-            img1: "./assets/images/audi rs6.png",
-            img2: "./assets/images/audi rs7.png",
-            nm: "Audi R8",
-            nm1: "Audi RS6",
-            nm2: "Audi RS7",
-        }
+    setAnimation("passaCarro");
+    setTimeout(() => {
+        changeDetails();
+    }, 300)
+
+});
+
+
+sEsquerda.addEventListener("click", () => {
+    countImg--;
+    if (countImg < 0)
+        countImg = 2;
+
+    setAnimation("voltaCarro");
+    setTimeout(() => {
+        changeDetails();
+    }, 400);
+
+});
+
+
+function setAnimation(animation) {
+    const classes = imgCarrosselCar.classList;
+    if (classes.length > 1) {
+        imgCarrosselCar.className = "imgCarrosselCarro";
+        setTimeout(() => {
+            imgCarrosselCar.classList.toggle(animation);
+        }, 5);
     } else {
-        carParams = {
-            img: "./assets/images/porscheCayenne.webp",
-            img1: "./assets/images/porsche 911.png",
-            img2: "./assets/images/panamera2.png",
-            nm: "Porsche Cayenne",
-            nm1: "Porsche 911",
-            nm2: "Panamera",
-        }
+        imgCarrosselCar.classList.toggle(animation);
+    }
+}
+
+function selectBrand(brand) {
+    if (brand == "porsche") {
+        img = "./assets/images/porscheCayenne.webp";
+        img1 = "./assets/images/porsche 911.png";
+        img2 = "./assets/images/panamera2.png";
+        nm = "Porsche Cayenne";
+        nm1 = "Porsche 911";
+        nm2 = "Panamera";
+    } else if (brand == "audi") {
+        img = "./assets/images/audi r8.png";
+        img1 = "./assets/images/audi rs6.png";
+        img2 = "./assets/images/audi rs7.png";
+        nm = "Audi R8";
+        nm1 = "Audi RS6";
+        nm2 = "Audi RS7";
+    } else {
+        img = "./assets/images/porscheCayenne.webp";
+        img1 = "./assets/images/porsche 911.png";
+        img2 = "./assets/images/panamera2.png";
+        nm = "Porsche Cayenne";
+        nm1 = "Porsche 911";
+        nm2 = "Panamera";
     }
 
-    const carrosselPorsche = new CarrosselV2(carParams);
-
+    console.log(img, img1, img2, nm, nm1, nm2);
+    changeDetails();
 };
+
+// ANIMAÇÃO AO ROLAR
+document.addEventListener("scroll", (e) => {
+    const localDiv = document.querySelector(".redirect-container");
+    const qtdScrollY = scrollY;
+
+    if (qtdScrollY >= 1200)
+        makeVisibleAnimation(localDiv);
+})
+
+// FAZ APARECER ELEMENTO
+function makeVisibleAnimation(element) {
+    element.style.visibility = "visible";
+    element.style.animation = "500ms ease 0s aparecendo";
+}
