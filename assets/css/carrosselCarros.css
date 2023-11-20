@@ -49,7 +49,7 @@
     align-items: center;
     gap: 0 30px;
 
-    width: 40%;
+    width: 60%;
     background: rgb(231, 231, 231);
     border-radius: 20px;
     margin: 30px;
@@ -111,6 +111,7 @@
     animation: 400ms ease-in-out 0s passaCarro;
 }
 
+
 @keyframes passaCarro{
     from{
         opacity: 1;
@@ -137,3 +138,46 @@
     }
 }
 
+@media (max-width: 720px){
+    .marcas{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px 0;
+
+        margin-bottom: 50px;
+    }
+
+    .seta{
+        position: absolute;
+    }
+
+    .s_esquerda{
+        left: 10%;
+    }
+
+    .s_direita{
+        left: 80%;
+    }
+
+    .imgCarrosselCarro{
+        width: 400px;
+        height: 200px;
+    }
+
+    .carrossel-carros{
+        padding: 0 30px;
+        height: auto;
+    }
+
+    .carrosel-carros-container{
+        width: 100%;
+
+        padding: 20px 0;
+    }
+
+    .btn-detalhes{
+        margin: 0;
+    }
+}

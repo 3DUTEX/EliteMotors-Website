@@ -133,7 +133,6 @@ function selectBrand(brand) {
         nm2 = "Panamera";
     }
 
-    console.log(img, img1, img2, nm, nm1, nm2);
     changeDetails();
 };
 

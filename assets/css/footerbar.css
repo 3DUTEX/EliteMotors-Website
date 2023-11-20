@@ -46,3 +46,10 @@
     transform: scale(1.1);
     cursor: pointer;
 }
+
+@media (max-width: 720px){
+    .redes-sociais{
+        justify-content: center;
+        padding: 0;
+    }
+}
