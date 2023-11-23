@@ -49,7 +49,7 @@
     align-items: center;
     gap: 0 30px;
 
-    width: 60%;
+    padding: 30px 200px;
     background: rgb(231, 231, 231);
     border-radius: 20px;
     margin: 30px;
@@ -82,7 +82,7 @@
     font-size: 25px;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 
 .btn-detalhes{
@@ -138,6 +138,10 @@
     }
 }
 
+@media (max-width: 1175){
+
+}
+
 @media (max-width: 720px){
     .marcas{
         display: flex;
@@ -162,8 +166,8 @@
     }
 
     .imgCarrosselCarro{
-        width: 400px;
-        height: 200px;
+        width: 60%;
+        height: 30%;
     }
 
     .carrossel-carros{
@@ -175,6 +179,12 @@
         width: 100%;
 
         padding: 20px 0;
+    }
+
+    .carro-detalhes{
+        display: flex;
+        flex-direction: column;
+        gap: 50px 0;
     }
 
     .btn-detalhes{
