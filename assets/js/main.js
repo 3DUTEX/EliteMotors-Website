@@ -125,12 +125,12 @@ function selectBrand(brand) {
         nm1 = "Audi RS6";
         nm2 = "Audi RS7";
     } else {
-        img = "./assets/images/porscheCayenne.webp";
-        img1 = "./assets/images/porsche 911.png";
-        img2 = "./assets/images/panamera2.png";
-        nm = "Porsche Cayenne";
-        nm1 = "Porsche 911";
-        nm2 = "Panamera";
+        img = "./assets/images/bmw 320i.png";
+        img1 = "./assets/images/bmw x7.webp";
+        img2 = "./assets/images/bmwx1.png";
+        nm = "BMW 302i";
+        nm1 = "BMW X7";
+        nm2 = "BMW X1";
     }
 
     changeDetails();
